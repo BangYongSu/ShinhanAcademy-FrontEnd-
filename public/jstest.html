@@ -6,6 +6,24 @@
         <title>ReactJs를 위한 자바스크립트 연습</title>
     </head>
     <body>
+        <div id="here3">숫자</div>
+        <button id="btnIncrease">증가</button>
+        <button id="btnDecrease">감소</button>
+
+        <script>
+            var here3 = document.getElementById("here3");
+            var su = here3.innerText;
+            if (typeof su != "number") su = 0;
+            document.getElementById("btnIncrease").onclick = () => {
+                su = parseInt(su) + 1;
+                here3.innerText = su;
+            };
+            document.getElementById("btnDecrease").onclick = () => {
+                su = parseInt(su) - 1;
+                here3.innerText = su;
+            };
+        </script>
+
         <!-- module을 사용하면 가장 마지막에 수행 Script->Dom->Module
             , 이미 존재하는 것은 재실행하지 않는다.(common.js를 동시에 갖고 있기에 한번만 실행함) -->
         <script type="module" src="./go1.js"></script>
