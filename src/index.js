@@ -1,18 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import MyCar from './component1/MyCar';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import MyCar from "./component1/MyCar";
+import ComponentTest from "./component1/ComponentTest";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <MyCar />
-    <hr />
-    <MyCar />
-    <App />
-  </React.StrictMode>
+    <>
+        <ComponentTest></ComponentTest>
+    </>
 );
 
 // If you want to start measuring performance in your app, pass a function
