@@ -6,9 +6,137 @@
         <title>ReactJs를 위한 자바스크립트 연습</title>
     </head>
     <body>
+        <!-- module을 사용하면 가장 마지막에 수행 Script->Dom->Module -->
+        <script type="module">
+            document.getElementById("here2").innerHTML += "1javascript.....";
+        </script>
         <h1>ReactJs를 위한 자바스크립트 연습</h1>
+        <button id="btn1">버튼1</button>
+        <div id="here">여기</div>
+        <div id="here2">!!!!!!!!!! 모듈은 맨 마지막에 실행된다 !!!!!!!!!!</div>
         <script>
-            //class연습
+            document.getElementById("here2").innerHTML = "2javascript.....";
+        </script>
+        <script>
+            ////// 스프레드 연산자 //////
+            const numbersOne = [1, 2, 3];
+            const numbersTwo = [4, 5, 6];
+            //...이 있으면 펼쳐서 합치기(요소들이 들어간다.) //[1, 2, 3, 4, 5, 6]
+            //...이 없으면 [] 배열이 합쳐진다. => 2차원 배열이 된다. //[[1, 2, 3], [4, 5, 6]]
+            const numbersCombined = [...numbersOne, ...numbersTwo];
+            console.log(numbersCombined);
+
+            const numbers = [1, 2, 3, 4, 5, 6];
+            const [one, two, ...rest] = numbers; //rest는 배열이다.
+            console.log(one, two, rest);
+
+            const v1 = { brand: "Ford", model: "Mustang", color: "red" };
+            const v2 = { type: "car", year: 2021, color: "yellow" };
+            const myUpdatedCars = { ...v1, ...v2 }; //...있으면 {속성1:값1, 속성2:값2}
+            console.log(v1);
+            console.log(v2);
+            console.log(myUpdatedCars); //{brand: 'Ford', model: 'Mustang', color: 'yellow', type: 'car', year: 2021}
+
+            //const myUpdatedCars = { v1, v2 }; //...없으면 1board, 10개 댓글{{}{}}
+            //{{ brand: "Ford", model: "Mustang", color: "red" }, { type: "car", year: 2021, color: "yellow" }}
+        </script>
+        <script>
+            ////// Destructing Arrays (배열을 구조화) : 함수가 배열을 반환할 때 유용 //////
+            const arr = ["BMW520", "포터2", "Discovery"];
+            // old way
+            const car = arr[0];
+            const truck = arr[1];
+            const suv = arr[2];
+
+            const [car2, truck2, suv2] = arr;
+            console.log(car2, truck2, suv2);
+            const [add, subtract, multiply, divide] = calculate(10, 3);
+            console.log(add, subtract, multiply, divide);
+            function calculate(a, b) {
+                const add = a + b;
+                const subtract = a - b;
+                const multiply = a * b;
+                const divide = a / b;
+                return [add, subtract, multiply, divide];
+            }
+        </script>
+        <script>
+            /////  Array 메서드 (map) : 각 요소마다 looping, 새로운 배열return //////
+            //map 함수
+            const myArray = ["apple", "banana", "orange"];
+            //************배열에 저장되어 있는 값을 변형하고자 한다.(원본은 그대로, 새로운 배열 생성)
+            //방법1) 전통적인 방법
+            //["<h2>apple</h2>","<h2>banana</h2>","<h2>orange</h2>"];
+            const myList2 = [];
+            for (let i = 0; i < myArray.length; i++) {
+                myList2.push("<h2>" + myArray[i] + "</h2>");
+            }
+
+            //방법2) 추천
+            //["<p>apple</p>","<p>banana</p>","<p>orange</p>"];
+            //const myList = myArray.map((item) => "<p>" + item + "</p>");
+            const myList = myArray.map((item) => {
+                console.log(item);
+                return "<p>" + item + "</p>";
+            });
+
+            console.log(myList);
+            document.getElementById("here").innerHTML = myList
+                .join() //문자열로 만들어줌
+                .replaceAll(",", "");
+        </script>
+        <script>
+            ///// this /////
+            class Header {
+                constructor() {
+                    this.color = "red";
+                }
+                changeColor = function (e) {
+                    const hereObj = document.getElementById("here");
+                    if (this == window)
+                        hereObj.style.backgroundColor = "orange";
+                    else if (this.nodeName == "BUTTON")
+                        hereObj.style.backgroundColor = "lightgreen";
+                    else if (this.nodeName == "DIV")
+                        hereObj.style.backgroundColor = "hotpink";
+
+                    hereObj.innerHTML += this;
+                    console.dir(this);
+                    e.stopPropagation(); //이벤트 전달 막기
+                };
+            }
+            const myheader = new Header();
+            window.addEventListener("click", myheader.changeColor);
+            document
+                .getElementById("btn1")
+                .addEventListener("click", myheader.changeColor);
+            document
+                .getElementById("here")
+                .addEventListener("click", myheader.changeColor);
+        </script>
+        <script>
+            ///// Arrow functions /////
+            (function () {
+                console.log("익명함수 실행...즉시 실행 함수"); //
+            })();
+            //f1(); //오류 - 할당 전에 호출은 불가..
+            const f4 = function () {
+                console.log("익명함수 변수에 할당합니다.(리터럴함수)");
+            };
+            const f5 = (aa) => {
+                console.log(aa + "화살표함수로 변경합니다.");
+                return aa + "!!!!!!!!!!!!!!";
+            };
+            const f6 = (val) => val + "화살표함수 파라메터와 리턴";
+
+            f4();
+            var result = f5("React전에 함수 연습");
+            console.log(result);
+            const result2 = f6(100);
+            console.log(result2);
+        </script>
+        <script>
+            ///// class연습 /////
             class Shape {
                 //Javasciprt 생성자 이름은 constructor()이다.
                 constructor(name) {
@@ -32,6 +160,7 @@
                 return "class 외부에 있는 display 함수";
             }
 
+            ///// class 상속 예제 /////
             class Rectangle extends Shape {
                 constructor(name, width, height) {
                     super(name);
