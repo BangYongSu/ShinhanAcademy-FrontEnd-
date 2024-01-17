@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ReactJs를 위한 자바스크립트 연습</title>
+    </head>
+    <body>
+        <h1>ReactJs를 위한 자바스크립트 연습</h1>
+        <script>
+            //class연습
+            class Shape {
+                //Javasciprt 생성자 이름은 constructor()이다.
+                constructor(name) {
+                    this.model = name; //생성시마다 메서드 추가
+                    this.draw = function () {
+                        console.log(this.model + "~~그리다....");
+                    };
+                }
+                // 프로토타입 메서드
+                //class 내의 함수 정의 시 function 예약어는 쓸 수 없다.
+                display() {
+                    return "나는 " + this.model;
+                }
+            }
+            const myshape = new Shape("도형");
+            console.log(myshape);
+            myshape.draw();
+            console.log(myshape.display());
+
+            function display() {
+                return "class 외부에 있는 display 함수";
+            }
+
+            class Rectangle extends Shape {
+                constructor(name, width, height) {
+                    super(name);
+                    this.width = width;
+                    this.height = height;
+                }
+                show() {
+                    return (
+                        this.display() +
+                        " ,width= " +
+                        this.width +
+                        " ,height=" +
+                        this.height
+                    );
+                }
+            }
+            const myshape2 = new Rectangle("사각형", 10, 20);
+            console.log(myshape2.show());
+        </script>
+        <script>
+            var a = 10;
+            {
+                let b = 20; //block 내에서 유효
+            }
+            //console.log(b);
+            const c = 30; //변경불가
+            //c++; //오류
+            f1();
+            f2();
+            function f1() {
+                var d = 100; //지역변수
+                a++;
+                console.log(a);
+            }
+            function f2() {
+                //console.log(d); //f1 지역변수
+                {
+                }
+                {
+                }
+            }
+        </script>
+    </body>
+</html>
