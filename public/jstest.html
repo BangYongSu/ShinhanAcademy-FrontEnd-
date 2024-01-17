@@ -6,7 +6,11 @@
         <title>ReactJs를 위한 자바스크립트 연습</title>
     </head>
     <body>
-        <!-- module을 사용하면 가장 마지막에 수행 Script->Dom->Module -->
+        <!-- module을 사용하면 가장 마지막에 수행 Script->Dom->Module
+            , 이미 존재하는 것은 재실행하지 않는다.(common.js를 동시에 갖고 있기에 한번만 실행함) -->
+        <script type="module" src="./go1.js"></script>
+        <script type="module" src="./go2.js"></script>
+
         <script type="module">
             document.getElementById("here2").innerHTML += "1javascript.....";
         </script>
