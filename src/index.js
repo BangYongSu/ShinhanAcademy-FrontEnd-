@@ -5,15 +5,32 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import MyCar from "./component1/MyCar";
 import ComponentTest from "./component1/ComponentTest";
+import MyComponentA, {
+    MyComponentB,
+    ConstTest,
+    VarTest,
+    FuncTest1,
+    FuncTest2,
+    FuncTest3,
+} from "component2/JSXTest";
+import MyComponentC from "component2/CSSTest";
+import MyComponentD from "component2/PropsTest";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+console.log("상수" + ConstTest);
+console.log("변수" + VarTest);
+
 root.render(
     <>
-        <ComponentTest></ComponentTest>
+        {/* <MyComponentA></MyComponentA>
+        <MyComponentB></MyComponentB>
+        <FuncTest1></FuncTest1>
+        <FuncTest2></FuncTest2>
+        <FuncTest3></FuncTest3>
+        <App /> 
+        <MyComponentC />*/}
+        <MyComponentD />
     </>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
