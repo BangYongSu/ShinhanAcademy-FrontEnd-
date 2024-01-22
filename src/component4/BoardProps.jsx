@@ -15,7 +15,7 @@ function BoardProps(props) {
     const [board, setBoard] = useState(emptyBoard);
     const [boardList, setBoardList] = useState([]);
     const nextBno = useRef(1); //rendering 시에 다시 초기화하지 않음. 값 유지
-    const chageHandler = (e) => {
+    const changeHandler = (e) => {
         setBoard({ ...board, [e.target.name]: e.target.value });
         /*
         var obj = {};
@@ -62,7 +62,7 @@ function BoardProps(props) {
         <div>
             {/* <h1>count값: {count}</h1> */}
             <InputBoard
-                chageHandler2={chageHandler}
+                changeHandler2={changeHandler}
                 addHandler={addHandler}
                 board={board}
             ></InputBoard>
@@ -75,7 +75,7 @@ function BoardProps(props) {
     );
 }
 
-export function InputBoard({ chageHandler2, addHandler, board }) {
+export function InputBoard({ changeHandler2, addHandler, board }) {
     return (
         <div>
             <InputGroup className="mb-3">
@@ -83,7 +83,7 @@ export function InputBoard({ chageHandler2, addHandler, board }) {
                 <Form.Control
                     aria-label="title입니다."
                     name="title"
-                    onChange={chageHandler2}
+                    onChange={changeHandler2}
                     value={board.title}
                 />
             </InputGroup>
@@ -92,7 +92,7 @@ export function InputBoard({ chageHandler2, addHandler, board }) {
                 <Form.Control
                     aria-label="content입니다."
                     name="content"
-                    onChange={chageHandler2}
+                    onChange={changeHandler2}
                     value={board.content}
                 />
             </InputGroup>
@@ -101,7 +101,7 @@ export function InputBoard({ chageHandler2, addHandler, board }) {
                 <Form.Control
                     aria-label="writer입니다."
                     name="writer"
-                    onChange={chageHandler2}
+                    onChange={changeHandler2}
                     value={board.writer}
                 />
             </InputGroup>
