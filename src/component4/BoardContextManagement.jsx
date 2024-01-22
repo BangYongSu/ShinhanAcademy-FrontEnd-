@@ -25,7 +25,7 @@ export function BoardProvider(props) {
     const [board, setBoard] = useState(emptyBoard);
     const [boardList, setBoardList] = useState([]);
     const nextBno = useRef(1); //rendering 시에 다시 초기화하지 않음. 값 유지
-    const chageHandler = (e) => {
+    const changeHandler = (e) => {
         setBoard({ ...board, [e.target.name]: e.target.value });
         /*
         var obj = {};
@@ -71,7 +71,7 @@ export function BoardProvider(props) {
     return (
         <BoardContext.Provider
             value={{
-                chageHandler,
+                changeHandler,
                 addHandler,
                 board,
                 boardList,
@@ -94,7 +94,7 @@ export function BoardContextManagement(props) {
 }
 
 export function InputBoard() {
-    const { chageHandler, board } = useContext(BoardContext);
+    const { changeHandler, board } = useContext(BoardContext);
     return (
         <div>
             <h1>Context API 이용하기</h1>
@@ -103,7 +103,7 @@ export function InputBoard() {
                 <Form.Control
                     aria-label="title입니다."
                     name="title"
-                    onChange={chageHandler}
+                    onChange={changeHandler}
                     value={board.title}
                 />
             </InputGroup>
@@ -112,7 +112,7 @@ export function InputBoard() {
                 <Form.Control
                     aria-label="content입니다."
                     name="content"
-                    onChange={chageHandler}
+                    onChange={changeHandler}
                     value={board.content}
                 />
             </InputGroup>
@@ -121,7 +121,7 @@ export function InputBoard() {
                 <Form.Control
                     aria-label="writer입니다."
                     name="writer"
-                    onChange={chageHandler}
+                    onChange={changeHandler}
                     value={board.writer}
                 />
             </InputGroup>

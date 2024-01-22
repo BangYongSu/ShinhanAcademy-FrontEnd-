@@ -23,7 +23,7 @@ export const BoardProvider = (props) => {
     const [board, setBoard] = useState(emptyBoard);
     const [boardList, setBoardList] = useState([]);
     const nextBno = useRef(1); //rendering 시에 다시 초기화하지 않음. 값 유지
-    const chageHandler = (e) => {
+    const changeHandler = (e) => {
         setBoard({ ...board, [e.target.name]: e.target.value });
         /*
         var obj = {};
@@ -61,7 +61,7 @@ export const BoardProvider = (props) => {
         <>
             <BoardContext.Provider
                 value={{
-                    chageHandler2: chageHandler,
+                    changeHandler2: changeHandler,
                     addHandler,
                     board,
                     boardList,
@@ -86,7 +86,7 @@ export default function BoardContextManagememt2(props) {
 }
 
 export function InputBoard() {
-    const { chageHandler2, board } = useContext(BoardContext);
+    const { changeHandler2, board } = useContext(BoardContext);
     return (
         <div>
             <InputGroup className="mb-3">
@@ -94,7 +94,7 @@ export function InputBoard() {
                 <Form.Control
                     aria-label="title입니다."
                     name="title"
-                    onChange={chageHandler2}
+                    onChange={changeHandler2}
                     value={board.title}
                 />
             </InputGroup>
@@ -103,7 +103,7 @@ export function InputBoard() {
                 <Form.Control
                     aria-label="content입니다."
                     name="content"
-                    onChange={chageHandler2}
+                    onChange={changeHandler2}
                     value={board.content}
                 />
             </InputGroup>
@@ -112,7 +112,7 @@ export function InputBoard() {
                 <Form.Control
                     aria-label="writer입니다."
                     name="writer"
-                    onChange={chageHandler2}
+                    onChange={changeHandler2}
                     value={board.writer}
                 />
             </InputGroup>
