@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import PropsAndContext from "component4/PropsAndContext";
-import { PropsAndContext2 } from "component4/PropsAndContext2";
+import BoardProps from "component4/BoardPropsReducer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 //console.log("상수" + ConstTest);
@@ -37,9 +36,11 @@ root.render(
         <BoardContextManagement></BoardContextManagement>
         <CounterContextManagement></CounterContextManagement>
         <BoardContextManagememt2 />
-        <ProviderTest />*/}
+        <ProviderTest />
         <PropsAndContext></PropsAndContext>
         <PropsAndContext2></PropsAndContext2>
+        <Counter1></Counter1>*/}
+        <BoardProps></BoardProps>
     </>
 );
 
