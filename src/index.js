@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import SmartHome from "component3/SmartHome";
+import PropsAndContext from "component4/PropsAndContext";
+import { PropsAndContext2 } from "component4/PropsAndContext2";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 //console.log("상수" + ConstTest);
@@ -30,8 +31,15 @@ root.render(
         <FunctionComponent3></FunctionComponent3>
         <LifeCycleFunctionComponent></LifeCycleFunctionComponent>
         <MemoTest></MemoTest>
-        <CallbackTest></CallbackTest>*/}
+        <CallbackTest></CallbackTest>
         <SmartHome></SmartHome>
+        <BoardProps></BoardProps>
+        <BoardContextManagement></BoardContextManagement>
+        <CounterContextManagement></CounterContextManagement>
+        <BoardContextManagememt2 />
+        <ProviderTest />*/}
+        <PropsAndContext></PropsAndContext>
+        <PropsAndContext2></PropsAndContext2>
     </>
 );
 
