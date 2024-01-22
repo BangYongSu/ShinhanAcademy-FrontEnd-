@@ -3,6 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import BoardProps from "component4/BoardPropsReducer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Counter1 from "component4/ReducerTest1";
+import { BoardContextManagement } from "component4/BoardContextManagement";
+import CounterContextManagement from "component4/CounterContextManagement";
+import { ProviderTest } from "component4/ProviderTest";
+import PropsAndContext from "component4/PropsAndContext";
+import { PropsAndContext2 } from "component4/PropsAndContext2";
+import Day4HOME from "component4/Day4HOME";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 //console.log("상수" + ConstTest);
@@ -12,6 +20,31 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/reducer1" element={<Counter1 />} />
+                <Route path="/reducer2" element={<BoardProps />} />
+                <Route
+                    path="/boardcontext"
+                    element={<BoardContextManagement />}
+                />
+                <Route
+                    path="/countcontext"
+                    element={<CounterContextManagement />}
+                />
+                <Route path="/provider" element={<ProviderTest />} />
+                <Route
+                    path="/props"
+                    element={
+                        <>
+                            <PropsAndContext />
+                            <PropsAndContext2 />
+                        </>
+                    }
+                />
+                <Route path="/day4/*" element={<Day4HOME />} />
+            </Routes>
+        </BrowserRouter>
         {/* <MyComponentA></MyComponentA>
         <MyComponentB></MyComponentB>
         <FuncTest1></FuncTest1>
@@ -39,8 +72,8 @@ root.render(
         <ProviderTest />
         <PropsAndContext></PropsAndContext>
         <PropsAndContext2></PropsAndContext2>
-        <Counter1></Counter1>*/}
-        <BoardProps></BoardProps>
+        <Counter1></Counter1>
+        <BoardProps></BoardProps>*/}
     </>
 );
 
