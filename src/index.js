@@ -11,6 +11,8 @@ import { ProviderTest } from "component4/ProviderTest";
 import PropsAndContext from "component4/PropsAndContext";
 import { PropsAndContext2 } from "component4/PropsAndContext2";
 import Day4HOME from "component4/Day4HOME";
+import BoardHOME from "component5/BoardHOME";
+import EmpHOME from "component5/EmpHOME";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 //console.log("상수" + ConstTest);
@@ -43,6 +45,8 @@ root.render(
                     }
                 />
                 <Route path="/day4/*" element={<Day4HOME />} />
+                <Route path="/board/*" element={<BoardHOME />} />
+                <Route path="/emp/*" element={<EmpHOME />} />
             </Routes>
         </BrowserRouter>
         {/* <MyComponentA></MyComponentA>
